@@ -18,28 +18,32 @@ print(sapply(list(snps, ref, het, alt), nrow))
 
 pdf('results/all_SNPs_hist.pdf')
 for(i in c(3, 4, 6:16)) {
-  hist(x = as.numeric(snps[, i]), col = 'gold', breaks = 300,
+  hist(x = as.numeric(snps[, i]), col = 'gold', breaks = 200,
+       xlim = c(min(as.numeric(snps[, i])), max(as.numeric(snps[, i]))),
        main = colnames(snps)[i])
 }
 dev.off()
 
 pdf('results/ref_SNPs_hist.pdf')
 for(i in c(3, 4, 6:16)) {
-  hist(x = as.numeric(ref[, i]), col = 'gold', breaks = 300,
+  hist(x = as.numeric(ref[, i]), col = 'gold', breaks = 200,
+       xlim = c(min(as.numeric(snps[, i])), max(as.numeric(snps[, i]))),
        main = colnames(ref)[i])
 }
 dev.off()
 
 pdf('results/het_SNPs_hist.pdf')
 for(i in c(3, 4, 6:16)) {
-  hist(x = as.numeric(het[, i]), col = 'gold', breaks = 300,
+  hist(x = as.numeric(het[, i]), col = 'gold', breaks = 200,
+       xlim = c(min(as.numeric(snps[, i])), max(as.numeric(snps[, i]))),
        main = colnames(het)[i])
 }
 dev.off()
 
 pdf('results/alt_SNPs_hist.pdf')
 for(i in c(3, 4, 6:16)) {
-  hist(x = as.numeric(alt[, i]), col = 'gold', breaks = 300,
+  hist(x = as.numeric(alt[, i]), col = 'gold', breaks = 200,
+       xlim = c(min(as.numeric(snps[, i])), max(as.numeric(snps[, i]))),
        main = colnames(alt)[i])
 }
 dev.off()
