@@ -13,6 +13,10 @@ ref = indels[indels$X.18.results.sorted_Gifu_R.bam.GT =='0/0', ]
 het = indels[indels$X.18.results.sorted_Gifu_R.bam.GT =='0/1', ]
 alt = indels[indels$X.18.results.sorted_Gifu_R.bam.GT =='1/1', ]
 
+print(table(indels$X.18.results.sorted_Gifu_R.bam.GT))
+
+print(sapply(list(indels, ref, het, alt), nrow))
+
 pdf('results/all_INDELs_hist.pdf')
 for(i in c(3, 4, 6:13)) {
   hist(x = as.numeric(indels[, i]), col = 'gold', breaks = 300,
