@@ -12,6 +12,10 @@ ref = snps[snps$X.18.results.sorted_Gifu_R.bam.GT =='0/0', ]
 het = snps[snps$X.18.results.sorted_Gifu_R.bam.GT =='0/1', ]
 alt = snps[snps$X.18.results.sorted_Gifu_R.bam.GT =='1/1', ]
 
+print(table(snps$X.18.results.sorted_Gifu_R.bam.GT))
+
+print(sapply(list(snps, ref, het, alt), nrow))
+
 pdf('results/all_SNPs_hist.pdf')
 for(i in c(3, 4, 6:16)) {
   hist(x = as.numeric(snps[, i]), col = 'gold', breaks = 300,
