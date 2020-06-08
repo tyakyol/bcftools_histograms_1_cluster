@@ -19,28 +19,32 @@ print(sapply(list(indels, ref, het, alt), nrow))
 
 pdf('results/all_INDELs_hist.pdf')
 for(i in c(3, 4, 6:13)) {
-  hist(x = as.numeric(indels[, i]), col = 'gold', breaks = 300,
+  hist(x = as.numeric(indels[, i]), col = 'gold', breaks = 200,
+       xlim = c(min(as.numeric(indels[, i])), max(as.numeric(indels[, i]))),
        main = colnames(indels)[i])
 }
 dev.off()
 
 pdf('results/ref_INDELs_hist.pdf')
 for(i in c(3, 4, 6:13)) {
-  hist(x = as.numeric(ref[, i]), col = 'gold', breaks = 300,
+  hist(x = as.numeric(ref[, i]), col = 'gold', breaks = 200,
+       xlim = c(min(as.numeric(indels[, i])), max(as.numeric(indels[, i]))),
        main = colnames(ref)[i])
 }
 dev.off()
 
 pdf('results/het_INDELs_hist.pdf')
 for(i in c(3, 4, 6:13)) {
-  hist(x = as.numeric(het[, i]), col = 'gold', breaks = 300,
+  hist(x = as.numeric(het[, i]), col = 'gold', breaks = 200,
+       xlim = c(min(as.numeric(indels[, i])), max(as.numeric(indels[, i]))),
        main = colnames(het)[i])
 }
 dev.off()
 
 pdf('results/alt_INDELs_hist.pdf')
 for(i in c(3, 4, 6:13)) {
-  hist(x = as.numeric(alt[, i]), col = 'gold', breaks = 300,
+  hist(x = as.numeric(alt[, i]), col = 'gold', breaks = 200,
+       xlim = c(min(as.numeric(indels[, i])), max(as.numeric(indels[, i]))),
        main = colnames(alt)[i])
 }
 dev.off()
