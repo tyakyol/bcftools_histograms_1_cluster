@@ -48,6 +48,18 @@ bcftools query -H \
     return inputs, outputs, options, spec
 
 
+def idv_and_imf(vcf, tsv):
+    inputs = [vcf]
+    outputs = [tsv]
+    options = {}
+    spec = '''
+    bcftools query -H \
+      -f '%IDV\t%IMF\t\n' \
+      {vcf} > {tsv}    
+        '''.format(vcf=vcf, tsv=tsv)
+    return inputs, outputs, options, spec
+
+
 def snp_to_tsv(vcf, tsv):
     inputs = [vcf]
     outputs = [tsv]
