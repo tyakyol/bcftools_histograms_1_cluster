@@ -22,6 +22,10 @@ gwf.target_from_template('indeltotsv',
                                     tsv='data/only_indels.tsv'
                                     ))
 
+gwf.target_from_template('idv_and_imf',
+                         idv_and_imf(vcf='data/only_indels.vcf',
+                                     tsv='data/only_indels_additional.tsv'))
+
 gwf.target_from_template('SNPtotsv',
                          snp_to_tsv(vcf='data/only_snps.vcf',
                                     tsv='data/only_snps.tsv'
