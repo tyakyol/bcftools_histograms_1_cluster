@@ -16,6 +16,9 @@ snps2 = snps[, -1 * colstochange]
 snps3 = snps[, colstochange]
 snps3[snps3 == '.'] = NA
 snps2 = cbind(snps2, snps3)
+for(i in c(3:6, 8, 10, 172:178)) {
+  snps2[, i] = as.numeric(snps2[, i])
+}
 snps2 = snps2[snps2$X.18.results.sorted_Gifu_R.bam.GT != './.', ]
 ref = snps2[snps2$X.18.results.sorted_Gifu_R.bam.GT =='0/0', ]
 het = snps2[snps2$X.18.results.sorted_Gifu_R.bam.GT =='0/1', ]
