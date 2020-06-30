@@ -21,8 +21,11 @@ for(i in c(1:17, 179, 180)) {
 indels2 = indels[, -1 * colstochange]
 indels3 = indels[, colstochange]
 indels3[indels3 == '.'] = NA
-indels3 = indels3[ -1 * c(2, 3, 5)]
+indels3 = indels3[, -1 * c(2, 3, 5)]
 indels2 = cbind(indels2, indels3)
+for(i in c(3:6, 8, 10, 172:177)) {
+  indels2[, i] = as.numeric(indels2[, i])
+}
 indels2 = indels2[indels2$X.18.results.sorted_Gifu_R.bam.GT != './.', ]
 ref = indels2[indels2$X.18.results.sorted_Gifu_R.bam.GT =='0/0', ]
 het = indels2[indels2$X.18.results.sorted_Gifu_R.bam.GT =='0/1', ]
